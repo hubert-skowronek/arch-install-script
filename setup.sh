@@ -58,11 +58,11 @@ gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.interface clock-show-seconds false
 gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 11'
 gsettings set org.gnome.desktop.interface document-font-name 'Sans 11'
-gsettings set org.gnome.desktop.interface font-name 'Noto Sans 10'
+gsettings set org.gnome.desktop.interface font-name 'Roboto 10'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Monospace 11'
 
 # Set favorite apps
-gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'pidgin.desktop', 'skype.desktop', 'vlc.desktop', 'spotify.desktop', 'evince.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'idea.desktop']"
+gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'pidgin.desktop', 'skypeforlinux.desktop', 'vlc.desktop', 'spotify.desktop', 'evince.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'idea.desktop']"
 
 # Minimize and close buttons
 gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'

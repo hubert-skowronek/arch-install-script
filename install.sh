@@ -68,6 +68,16 @@ function full {
 	installation_succeeded
 }
 
+function min_vbox_guest {
+	min
+	pacstrap /mnt virtualbox-guest-modules-arch virtualbox-guest-iso
+}
+
+function full_vbox_guest {
+	full
+	pacstrap /mnt virtualbox-guest-modules-arch virtualbox-guest-iso
+}
+
 function set_keymap {
 	loadkeys pl
 	setfont lat2-16 -m 8859-2
@@ -139,7 +149,7 @@ function set_pacman_mirrors {
 }
 
 function install_system {
-	pacstrap -i /mnt base base-devel \
+	pacstrap /mnt base base-devel \
 	ntfs-3g \
 	exfat-utils \
 	alsa-utils \
@@ -194,6 +204,7 @@ function install_system {
 	libreoffice-still \
 	desmume \
 	mgba-qt \
+	dolphin-emu \
 	transmission-gtk \
 	bless \
 	wget \
@@ -201,35 +212,35 @@ function install_system {
 	screenfetch \
 	sudo \
 	xf86-video-intel \
-	samba
+	samba \
+	p7zip \
+	gimp \
+	audacity \
+	filezilla \
+	parted
 
 	# flashplugin
 	# wireshark-gtk
-	# virtualbox-guest-modules-arch
-	# virtualbox-guest-iso 5.1.26-1
-	# virtualbox-host-modules-arch 5.1.26-6
+	# virtualbox-host-modules-arch
 	# remmina
 	# mesa-demos
 	# i7z
 	# gtk-perf
 	# gparted
-	# virtualbox-host-modules-arch
 	# arc-gtk-theme
-	# audacity
-	# gimp
-	# p7zip
 	# paper-gtk-theme
 	# paper-icon-theme
 	# super-flat-remix-icon-theme
 	# xnviewmp
+	# skypeforlinux
 }
 
 function install_min_system {
 	pacstrap /mnt base base-devel \
-	linux-lts \
-	linux-lts-headers \
 	ntfs-3g \
 	exfat-utils \
+	alsa-utils \
+	smartmontools \
 	xorg-server \
 	xorg-apps \
 	xorg-xinit \
@@ -244,16 +255,31 @@ function install_min_system {
 	adapta-gtk-theme \
 	ufw \
 	gufw \
+	iw \
+	dialog \
+	wpa_supplicant \
 	networkmanager \
 	network-manager-applet \
+	firefox \
+	pidgin \
+	purple-facebook \
+	purple-skypeweb \
+	vlc \
+	qt4 \
+	libdvdcss \
+	libva-intel-driver \
 	git \
-	virtualbox-guest-dkms \
+	linux-lts \
+	linux-lts-headers \
+	bless \
 	wget \
 	unrar \
 	screenfetch \
-	sudo
-
-	#virtualbox-guest-modules-arch \
+	sudo \
+	xf86-video-intel \
+	samba \
+	p7zip \
+	parted
 }
 
 function gen_fstab {
@@ -354,9 +380,9 @@ function install_gui {
 	arch-chroot /mnt chown hubert:hubert /home/hubert/setup.sh
 
 	# Dash-to-dock
-	arch-chroot /mnt wget https://extensions.gnome.org/review/download/7315.shell-extension.zip
-	arch-chroot /mnt unzip 7315.shell-extension.zip -d /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
-	arch-chroot /mnt rm 7315.shell-extension.zip
+	arch-chroot /mnt wget https://extensions.gnome.org/review/download/7799.shell-extension.zip
+	arch-chroot /mnt unzip 7799.shell-extension.zip -d /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+	arch-chroot /mnt rm 7799.shell-extension.zip
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/metadata.json
 
 	# Sound
@@ -420,7 +446,7 @@ function lid_switch_tweak {
 	[Desktop Entry]
 	Type=Application
 	Name=ignore-lid-switch-tweak
-	Exec=/usr/lib/gnome-tweak-tool/gnome-tweak-tool-lid-inhibitor
+	Exec=/usr/lib/gnome-tweak-tool-lid-inhibitor
 	END
 }
 
@@ -434,6 +460,22 @@ function create_bash_scripts {
 	done
 	END
 	chmod +x /mnt/usr/local/bin/sha1sumdir
+
+	cat <<-END > /mnt/usr/local/bin/smbstart
+	#!/bin/bash
+
+	systemctl start smbd
+	systemctl start nmbd
+	END
+	chmod +x /mnt/usr/local/bin/smbstart
+
+	cat <<-END > /mnt/usr/local/bin/smbstop
+	#!/bin/bash
+
+	systemctl stop smbd
+	systemctl stop nmbd
+	END
+	chmod +x /mnt/usr/local/bin/smbstop
 }
 
 function enable_multilib {
@@ -448,9 +490,6 @@ function install_aur {
 
 	PKG="aurutils"
 
-	# ustawic w sudoers brak o wolanie hasla dla uzytkownika hubert
-	# zaimportowac wszystkie certyfikaty/klucze
-
     arch-chroot /mnt su - hubert -c "
     [[ ! -d aui_packages ]] && mkdir aui_packages
     cd aui_packages
@@ -460,8 +499,6 @@ function install_aur {
     cd ${PKG}
     makepkg -csi --noconfirm
     "
-
-    #usunac linijke z sudoers
 }
 
 function installation_succeeded {
