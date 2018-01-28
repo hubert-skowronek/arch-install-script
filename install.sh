@@ -70,14 +70,13 @@ function full {
 
 function min_vbox_guest {
 	min
-	arch-chroot /mnt pacman --noconfirm -R virtualbox-host-dkms
-	arch-chroot /mnt pacman --noconfirm -S virtualbox-guest-modules-arch virtualbox-guest-iso
+	arch-chroot /mnt pacman --noconfirm -Syu virtualbox-guest-dkms virtualbox-guest-utils
 }
 
 function full_vbox_guest {
 	full
 	arch-chroot /mnt pacman --noconfirm -R virtualbox-host-dkms
-	arch-chroot /mnt pacman --noconfirm -S virtualbox-guest-modules-arch virtualbox-guest-iso
+	arch-chroot /mnt pacman --noconfirm -Syu virtualbox-guest-dkms virtualbox-guest-utils
 }
 
 function set_keymap {
