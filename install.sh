@@ -21,7 +21,7 @@ function min {
 	gen_fstab
 	set_timezone
 	gen_locale
-	set_hostname
+	#set_hostname
 	run_initramfs
 	set_root_passwd
 	install_intel_ucode
@@ -51,7 +51,7 @@ function full {
 	gen_fstab
 	set_timezone
 	gen_locale
-	set_hostname
+	#set_hostname
 	run_initramfs
 	set_root_passwd
 	install_intel_ucode
@@ -70,12 +70,14 @@ function full {
 
 function min_vbox_guest {
 	min
-	pacstrap /mnt virtualbox-guest-modules-arch virtualbox-guest-iso
+	arch-chroot /mnt pacman --noconfirm -R virtualbox-host-dkms
+	arch-chroot /mnt pacman --noconfirm -S virtualbox-guest-modules-arch virtualbox-guest-iso
 }
 
 function full_vbox_guest {
 	full
-	pacstrap /mnt virtualbox-guest-modules-arch virtualbox-guest-iso
+	arch-chroot /mnt pacman --noconfirm -R virtualbox-host-dkms
+	arch-chroot /mnt pacman --noconfirm -S virtualbox-guest-modules-arch virtualbox-guest-iso
 }
 
 function set_keymap {
@@ -321,7 +323,7 @@ function gen_locale {
 	END
 }
 
-function set_hostname {
+function TODO_set_hostname {
 	printf "hubert" > /mnt/etc/hostname
 
 	line=$(cat /mnt/etc/hosts | grep -n '# End of file' | grep -o '^[0-9]*')
@@ -398,10 +400,10 @@ function install_gui {
 	arch-chroot /mnt glib-compile-schemas /usr/share/glib-2.0/schemas
 
 	# Papirus icon set
-	arch-chroot /mnt wget https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install-papirus-root.sh
-	arch-chroot /mnt chmod +x install-papirus-root.sh
-	arch-chroot /mnt ./install-papirus-root.sh
-	arch-chroot /mnt rm install-papirus-root.sh
+	arch-chroot /mnt wget https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/master/install.sh
+	arch-chroot /mnt chmod +x install.sh
+	arch-chroot /mnt ./install.sh
+	arch-chroot /mnt rm install.sh
 
 	# Terminal
 	sed -i '/^PS1/s/PS1/#PS1/g' /mnt/home/hubert/.bashrc

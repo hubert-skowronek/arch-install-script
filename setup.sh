@@ -34,7 +34,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock icon-size-fixed true
 gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
 gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode 'FOCUS_APPLICATION_WINDOWS'
 gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor false
-gsettings set org.gnome.shell.extensions.dash-to-dock opaque-background true
+#gsettings set org.gnome.shell.extensions.dash-to-dock opaque-background true
 gsettings set org.gnome.shell.extensions.dash-to-dock preferred-monitor 0
 gsettings set org.gnome.shell.extensions.dash-to-dock pressure-threshold 100.0
 gsettings set org.gnome.shell.extensions.dash-to-dock require-pressure-to-show true
