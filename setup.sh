@@ -40,6 +40,7 @@ gsettings set org.gnome.shell.extensions.dash-to-dock pressure-threshold 100.0
 gsettings set org.gnome.shell.extensions.dash-to-dock require-pressure-to-show true
 gsettings set org.gnome.shell.extensions.dash-to-dock show-delay 0.25
 gsettings set org.gnome.shell.extensions.dash-to-dock show-show-apps-button true
+gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'ADAPTIVE'
 
 # Extension - sound-output-device Settings
 gsettings set org.gnome.shell.extensions.sound-output-device-chooser icon-theme 'monochrome'

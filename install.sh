@@ -21,7 +21,7 @@ function min {
 	gen_fstab
 	set_timezone
 	gen_locale
-	#set_hostname
+	set_hostname
 	run_initramfs
 	set_root_passwd
 	install_intel_ucode
@@ -51,7 +51,7 @@ function full {
 	gen_fstab
 	set_timezone
 	gen_locale
-	#set_hostname
+	set_hostname
 	run_initramfs
 	set_root_passwd
 	install_intel_ucode
@@ -210,11 +210,11 @@ function install_system {
 	bless \
 	wget \
 	unrar \
+	p7zip \
 	screenfetch \
 	sudo \
 	xf86-video-intel \
 	samba \
-	p7zip \
 	gimp \
 	audacity \
 	filezilla \
@@ -226,14 +226,13 @@ function install_system {
 	# remmina
 	# mesa-demos
 	# i7z
-	# gtk-perf
 	# gparted
+	# xnviewmp
+	# skypeforlinux-stable-bin
 	# arc-gtk-theme
 	# paper-gtk-theme
 	# paper-icon-theme
 	# super-flat-remix-icon-theme
-	# xnviewmp
-	# skypeforlinux
 }
 
 function install_min_system {
@@ -322,13 +321,17 @@ function gen_locale {
 	END
 }
 
-function TODO_set_hostname {
+function set_hostname {
 	printf "hubert" > /mnt/etc/hostname
 
-	line=$(cat /mnt/etc/hosts | grep -n '# End of file' | grep -o '^[0-9]*')
-	line=$((line-1))
+	printf "" > /mnt/etc/hosts
+	printf "" > /mnt/etc/hosts
 
-	sed -i ${line}'i\127.0.0.1\thubert.localdomain\thubert' /mnt/etc/hosts
+	cat <<-END >> /mnt/etc/hosts
+	127.0.0.1	localhost.localdomain	localhost
+	::1		localhost.localdomain	localhost
+	127.0.0.1	hubert.localdomain	hubert
+	END
 }
 
 function run_initramfs {
@@ -429,14 +432,15 @@ function create_bookmarks {
 
 function enable_firewall {
 	arch-chroot /mnt systemctl enable ufw.service
+	arch-chroot /mnt ufw enable
 	arch-chroot /mnt ufw status verbose
 }
 
 function config_git {
 	cat <<-END > /mnt/home/hubert/.gitconfig
 	[user]
-		name = Hubert Skowronek
-		email = hubert.skowronek@gmail.com
+	name = Hubert Skowronek
+	email = hubert.skowronek@gmail.com
 	END
 	arch-chroot /mnt chown hubert:hubert /home/hubert/.gitconfig
 }
