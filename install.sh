@@ -433,6 +433,7 @@ function create_bookmarks {
 function enable_firewall {
 	arch-chroot /mnt systemctl enable ufw.service
 	printf "Run ufw enable after reboot in order to get it working."
+}	
 
 function config_git {
 	cat <<-END > /mnt/home/hubert/.gitconfig
