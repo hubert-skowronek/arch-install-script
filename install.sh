@@ -432,9 +432,7 @@ function create_bookmarks {
 
 function enable_firewall {
 	arch-chroot /mnt systemctl enable ufw.service
-	arch-chroot /mnt ufw enable
-	arch-chroot /mnt ufw status verbose
-}
+	printf "Run ufw enable after reboot in order to get it working."
 
 function config_git {
 	cat <<-END > /mnt/home/hubert/.gitconfig
@@ -489,21 +487,6 @@ function enable_multilib {
 
 	line=$((line+1))
 	sed -i ${line}'s/#//' /mnt/etc/pacman.conf
-}
-
-function install_aur {
-
-	PKG="aurutils"
-
-    arch-chroot /mnt su - hubert -c "
-    [[ ! -d aui_packages ]] && mkdir aui_packages
-    cd aui_packages
-    curl -o ${PKG}.tar.gz https://aur.archlinux.org/cgit/aur.git/snapshot/${PKG}.tar.gz
-    tar zxvf ${PKG}.tar.gz
-    rm ${PKG}.tar.gz
-    cd ${PKG}
-    makepkg -csi --noconfirm
-    "
 }
 
 function installation_succeeded {
