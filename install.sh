@@ -75,7 +75,7 @@ function min_vbox_guest {
 
 function full_vbox_guest {
 	full
-	arch-chroot /mnt pacman --noconfirm -R virtualbox-host-dkms
+	#arch-chroot /mnt pacman --noconfirm -R virtualbox-host-dkms
 	arch-chroot /mnt pacman --noconfirm -Syu virtualbox-guest-dkms virtualbox-guest-utils
 }
 
@@ -151,13 +151,16 @@ function set_pacman_mirrors {
 
 function install_system {
 	pacstrap /mnt base base-devel \
-	ntfs-3g \
-	exfat-utils \
-	alsa-utils \
+	linux-lts \
+	linux-lts-headers \
 	squashfs-tools \
 	cdrtools \
 	syslinux \
+	ntfs-3g \
+	exfat-utils \
+	alsa-utils \
 	smartmontools \
+	sudo \
 	xorg-server \
 	xorg-apps \
 	xorg-xinit \
@@ -177,12 +180,17 @@ function install_system {
 	wpa_supplicant \
 	networkmanager \
 	network-manager-applet \
+	screenfetch \
+	xf86-video-intel \
+	samba \
+	parted \
+	qt4 \
+	wget \
 	firefox \
 	pidgin \
 	purple-facebook \
 	purple-skypeweb \
 	vlc \
-	qt4 \
 	libdvdcss \
 	libva-intel-driver \
 	docker \
@@ -198,8 +206,6 @@ function install_system {
 	gradle \
 	git \
 	intellij-idea-community-edition \
-	linux-lts \
-	linux-lts-headers \
 	virtualbox-host-dkms \
 	virtualbox \
 	libreoffice-still \
@@ -208,18 +214,16 @@ function install_system {
 	dolphin-emu \
 	transmission-gtk \
 	bless \
-	wget \
 	unrar \
 	p7zip \
-	screenfetch \
-	sudo \
-	xf86-video-intel \
-	samba \
 	gimp \
 	audacity \
-	filezilla \
-	parted
+	filezilla
 
+	# xnviewmp
+	# skypeforlinux-stable-bin
+	# spotify
+	# sublime
 	# flashplugin
 	# wireshark-gtk
 	# virtualbox-host-modules-arch
@@ -227,8 +231,6 @@ function install_system {
 	# mesa-demos
 	# i7z
 	# gparted
-	# xnviewmp
-	# skypeforlinux-stable-bin
 	# arc-gtk-theme
 	# paper-gtk-theme
 	# paper-icon-theme
