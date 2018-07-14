@@ -15,31 +15,8 @@ _extensions="['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-d
 gsettings set org.gnome.shell enabled-extensions "${_extensions}"
 
 # Extension - dash-to-dock Settings
-gsettings set org.gnome.shell.extensions.dash-to-dock animation-time 0.20000000000000001
-gsettings set org.gnome.shell.extensions.dash-to-dock apply-custom-theme false
-gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
-gsettings set org.gnome.shell.extensions.dash-to-dock autohide-in-fullscreen false
-gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.54000000000000004
-gsettings set org.gnome.shell.extensions.dash-to-dock custom-background-color false
-gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-running-dots false
-gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink false
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 48
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
-gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
-gsettings set org.gnome.shell.extensions.dash-to-dock force-straight-corner false
-gsettings set org.gnome.shell.extensions.dash-to-dock height-fraction 0.37
-gsettings set org.gnome.shell.extensions.dash-to-dock hide-delay 0.20000000000000001
-gsettings set org.gnome.shell.extensions.dash-to-dock icon-size-fixed true
-gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
-gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode 'FOCUS_APPLICATION_WINDOWS'
-gsettings set org.gnome.shell.extensions.dash-to-dock multi-monitor false
-#gsettings set org.gnome.shell.extensions.dash-to-dock opaque-background true
-gsettings set org.gnome.shell.extensions.dash-to-dock preferred-monitor 0
-gsettings set org.gnome.shell.extensions.dash-to-dock pressure-threshold 100.0
-gsettings set org.gnome.shell.extensions.dash-to-dock require-pressure-to-show true
-gsettings set org.gnome.shell.extensions.dash-to-dock show-delay 0.25
-gsettings set org.gnome.shell.extensions.dash-to-dock show-show-apps-button true
+gsettings set org.gnome.shell.extensions.dash-to-dock preferred-monitor -1
 gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'ADAPTIVE'
 
 # Extension - sound-output-device Settings
@@ -53,14 +30,14 @@ gsettings set org.gnome.Weather.Application locations "[<(uint32 2, <('Warsaw', 
 # Set theme
 gsettings set org.gnome.desktop.interface gtk-theme 'Adapta'
 gsettings set org.gnome.shell.extensions.user-theme name 'Adapta'
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Adapta'
 gsettings set org.gnome.desktop.interface enable-animations true
 gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.interface clock-show-seconds false
-gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 11'
-gsettings set org.gnome.desktop.interface document-font-name 'Sans 11'
+gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Roboto 10'
+gsettings set org.gnome.desktop.interface document-font-name 'Roboto 10'
 gsettings set org.gnome.desktop.interface font-name 'Roboto 10'
-gsettings set org.gnome.desktop.interface monospace-font-name 'Monospace 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Noto Sans Mono 10'
 
 # Set favorite apps
 gsettings set org.gnome.shell favorite-apps "['firefox.desktop', 'pidgin.desktop', 'skypeforlinux.desktop', 'vlc.desktop', 'spotify.desktop', 'evince.desktop', 'org.gnome.Nautilus.desktop', 'org.gnome.Terminal.desktop', 'idea.desktop']"
@@ -85,22 +62,22 @@ gsettings set org.gnome.nautilus.preferences search-filter-time-type 'last_modif
 gsettings set org.gnome.nautilus.preferences search-view 'list-view'
 
 # Terminal
-profile=$(gsettings get org.gnome.Terminal.ProfilesList default)
-profile=${profile:1:-1} # remove leading and trailing single quotes
+#profile=$(gsettings get org.gnome.Terminal.ProfilesList default)
+#profile=${profile:1:-1} # remove leading and trailing single quotes
 
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" background-color 'rgb(46,52,54)'
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" bold-color 'rgb(78,154,6)'
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" bold-color-same-as-fg true
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" font 'Ubuntu Mono 13'
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" foreground-color 'rgb(255,255,255)'
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" highlight-colors-set true
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" highlight-foreground-color 'rgb(0,0,0)'
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" highlight-background-color 'rgb(255,255,255)'
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" use-theme-colors false
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" use-system-font false
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" palette "['rgb(0,0,0)', 'rgb(204,0,0)', 'rgb(78,154,6)', 'rgb(196,160,0)', 'rgb(52,101,164)', 'rgb(117,80,123)', 'rgb(6,152,154)', 'rgb(211,215,207)', 'rgb(85,87,83)', 'rgb(239,41,41)', 'rgb(138,226,52)', 'rgb(252,233,79)', 'rgb(114,159,207)', 'rgb(173,127,168)', 'rgb(52,226,226)', 'rgb(238,238,236)']"
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" visible-name 'hubert'
-gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" scrollback-unlimited true
+#gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" background-color 'rgb(46,52,54)'
+#gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" bold-color 'rgb(78,154,6)'
+#gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" bold-color-same-as-fg true
+#gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" font 'Ubuntu Mono 13'
+#gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" foreground-color 'rgb(255,255,255)'
+#gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" highlight-colors-set true
+#gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" highlight-foreground-color 'rgb(0,0,0)'
+#gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" highlight-background-color 'rgb(255,255,255)'
+#gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" use-theme-colors false
+#gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" use-system-font false
+#gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" palette "['rgb(0,0,0)', 'rgb(204,0,0)', 'rgb(78,154,6)', 'rgb(196,160,0)', 'rgb(52,101,164)', 'rgb(117,80,123)', 'rgb(6,152,154)', 'rgb(211,215,207)', 'rgb(85,87,83)', 'rgb(239,41,41)', 'rgb(138,226,52)', 'rgb(252,233,79)', 'rgb(114,159,207)', 'rgb(173,127,168)', 'rgb(52,226,226)', 'rgb(238,238,236)']"
+#gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" visible-name 'hubert'
+#gsettings set "org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$profile/" scrollback-unlimited true
 
 # Disable searching of potential software. 
 #gsettings set org.gnome.desktop.search-providers disabled \[\'org.gnome.Software.desktop\'\]

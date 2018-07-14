@@ -196,8 +196,8 @@ function install_system {
 	docker \
 	jdk8-openjdk \
 	openjdk8-src \
-	jdk9-openjdk \
-	openjdk9-src \
+	jdk10-openjdk \
+	openjdk10-src \
 	visualvm \
 	scala \
 	scala-sources \
@@ -386,9 +386,9 @@ function install_gui {
 	arch-chroot /mnt chown hubert:hubert /home/hubert/setup.sh
 
 	# Dash-to-dock
-	arch-chroot /mnt wget https://extensions.gnome.org/review/download/7799.shell-extension.zip
-	arch-chroot /mnt unzip 7799.shell-extension.zip -d /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
-	arch-chroot /mnt rm 7799.shell-extension.zip
+	arch-chroot /mnt wget https://extensions.gnome.org/review/download/8039.shell-extension.zip
+	arch-chroot /mnt unzip 8039.shell-extension.zip -d /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+	arch-chroot /mnt rm 8039.shell-extension.zip
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/metadata.json
 
 	# Sound
