@@ -410,8 +410,8 @@ function install_gui {
 	arch-chroot /mnt rm install.sh
 
 	# Terminal
-	sed -i '/^PS1/s/PS1/#PS1/g' /mnt/home/hubert/.bashrc
-	printf "PS1='\\\[\\\e[01;32m\\\]\\\u@\\\h \\\[\\\e[01;34m\\\]\\\W \\$ \\\[\\\e[0m\\\]'\n" >> /mnt/home/hubert/.bashrc
+	#sed -i '/^PS1/s/PS1/#PS1/g' /mnt/home/hubert/.bashrc
+	#printf "PS1='\\\[\\\e[01;32m\\\]\\\u@\\\h \\\[\\\e[01;34m\\\]\\\W \\$ \\\[\\\e[0m\\\]'\n" >> /mnt/home/hubert/.bashrc
 
 	#Gnome settings
 	arch-chroot /mnt sudo -u hubert /home/hubert/setup.sh
