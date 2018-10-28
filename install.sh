@@ -34,7 +34,7 @@ function min {
 	config_git
 	lid_switch_tweak
 	create_bash_scripts
-	enable_multilib
+	# enable_multilib
 	installation_succeeded
 }
 
@@ -64,7 +64,7 @@ function full {
 	config_git
 	lid_switch_tweak
 	create_bash_scripts
-	enable_multilib
+	# enable_multilib
 	installation_succeeded
 }
 
@@ -196,8 +196,8 @@ function install_system {
 	docker \
 	jdk8-openjdk \
 	openjdk8-src \
-	jdk10-openjdk \
-	openjdk10-src \
+	jdk11-openjdk \
+	openjdk11-src \
 	visualvm \
 	scala \
 	scala-sources \
@@ -253,7 +253,6 @@ function install_min_system {
 	gnome-weather \
 	noto-fonts \
 	ttf-roboto \
-	ttf-ubuntu-font-family \
 	adapta-gtk-theme \
 	ufw \
 	gufw \
@@ -386,15 +385,15 @@ function install_gui {
 	arch-chroot /mnt chown hubert:hubert /home/hubert/setup.sh
 
 	# Dash-to-dock
-	arch-chroot /mnt wget https://extensions.gnome.org/review/download/8039.shell-extension.zip
-	arch-chroot /mnt unzip 8039.shell-extension.zip -d /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
-	arch-chroot /mnt rm 8039.shell-extension.zip
+	arch-chroot /mnt wget https://extensions.gnome.org/review/download/8355.shell-extension.zip
+	arch-chroot /mnt unzip 8355.shell-extension.zip -d /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+	arch-chroot /mnt rm 8355.shell-extension.zip
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/metadata.json
 
 	# Sound
-	arch-chroot /mnt wget https://extensions.gnome.org/extension-data/sound-output-device-chooser%40kgshank.net.v16.shell-extension.zip
-	arch-chroot /mnt unzip sound-output-device-chooser@kgshank.net.v16.shell-extension.zip -d /usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net
-	arch-chroot /mnt rm sound-output-device-chooser@kgshank.net.v16.shell-extension.zip
+	arch-chroot /mnt wget https://extensions.gnome.org/extension-data/sound-output-device-chooser%40kgshank.net.v17.shell-extension.zip
+	arch-chroot /mnt unzip sound-output-device-chooser@kgshank.net.v17.shell-extension.zip -d /usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net
+	arch-chroot /mnt rm sound-output-device-chooser@kgshank.net.v17.shell-extension.zip
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net/*.js
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net/*.json
 

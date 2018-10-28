@@ -11,7 +11,7 @@ if [[ -z "$DBUS_SESSION_BUS_ADDRESS" ]]; then
 fi
 
 # Enabled extensions
-_extensions="['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'sound-output-device-chooser@kgshank.net']"
+_extensions="['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-dock@micxgx.gmail.com', 'sound-output-device-chooser@kgshank.net', 'drive-menu@gnome-shell-extensions.gcampax.github.com']"
 gsettings set org.gnome.shell enabled-extensions "${_extensions}"
 
 # Extension - dash-to-dock Settings
