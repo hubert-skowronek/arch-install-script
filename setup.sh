@@ -30,7 +30,7 @@ gsettings set org.gnome.Weather.Application locations "[<(uint32 2, <('Warsaw', 
 # Set theme
 gsettings set org.gnome.desktop.interface gtk-theme 'Adapta'
 gsettings set org.gnome.shell.extensions.user-theme name 'Adapta'
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Adapta'
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 gsettings set org.gnome.desktop.interface enable-animations true
 gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.interface clock-show-seconds false
