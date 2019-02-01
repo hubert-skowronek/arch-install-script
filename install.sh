@@ -218,7 +218,8 @@ function install_system {
 	p7zip \
 	gimp \
 	audacity \
-	filezilla
+	filezilla \
+	fbreader
 
 	# xnviewmp
 	# skypeforlinux-stable-bin
