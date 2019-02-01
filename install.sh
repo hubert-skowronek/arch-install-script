@@ -422,12 +422,12 @@ function set_network {
 }
 
 function create_bookmarks {
-	arch-chroot /mnt sudo -u hubert mkdir -p /home/hubert/Install
+	arch-chroot /mnt sudo -u hubert mkdir -p /home/hubert/Software
 
 	arch-chroot /mnt sudo -u hubert mkdir -p /home/hubert/.config/gtk-3.0
 	arch-chroot /mnt sudo -u hubert cat <<-END > /mnt/home/hubert/.config/gtk-3.0/bookmarks
 	file:///home/hubert/Desktop
-	file:///home/hubert/Install
+	file:///home/hubert/Software
 	END
 }
 
