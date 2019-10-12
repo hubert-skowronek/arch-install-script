@@ -196,8 +196,8 @@ function install_system {
 	docker \
 	jdk8-openjdk \
 	openjdk8-src \
-	jdk11-openjdk \
-	openjdk11-src \
+	jdk12-openjdk \
+	openjdk12-src \
 	visualvm \
 	scala \
 	scala-sources \
@@ -386,15 +386,15 @@ function install_gui {
 	arch-chroot /mnt chown hubert:hubert /home/hubert/setup.sh
 
 	# Dash-to-dock
-	arch-chroot /mnt wget https://extensions.gnome.org/review/download/8355.shell-extension.zip
-	arch-chroot /mnt unzip 8355.shell-extension.zip -d /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
-	arch-chroot /mnt rm 8355.shell-extension.zip
+	arch-chroot /mnt wget https://extensions.gnome.org/review/download/9456.shell-extension.zip
+	arch-chroot /mnt unzip 9456.shell-extension.zip -d /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+	arch-chroot /mnt rm 9456.shell-extension.zip
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/metadata.json
 
 	# Sound
-	arch-chroot /mnt wget https://extensions.gnome.org/extension-data/sound-output-device-chooser%40kgshank.net.v17.shell-extension.zip
-	arch-chroot /mnt unzip sound-output-device-chooser@kgshank.net.v17.shell-extension.zip -d /usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net
-	arch-chroot /mnt rm sound-output-device-chooser@kgshank.net.v17.shell-extension.zip
+	arch-chroot /mnt wget https://extensions.gnome.org/extension-data/sound-output-device-chooserkgshank.net.v23.shell-extension.zip
+	arch-chroot /mnt unzip sound-output-device-chooser@kgshank.net.v23.shell-extension.zip -d /usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net
+	arch-chroot /mnt rm sound-output-device-chooser@kgshank.net.v23.shell-extension.zip
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net/*.js
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net/*.json
 

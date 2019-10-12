@@ -28,15 +28,15 @@ gsettings set org.gnome.shell.extensions.sound-output-device-chooser show-profil
 gsettings set org.gnome.Weather.Application locations "[<(uint32 2, <('Warsaw', 'EPWA', true, [(0.91048009894147275, 0.36593737231924195)], [(0.91193453416703718, 0.36651914291880922)])>)>]"
 
 # Set theme
-gsettings set org.gnome.desktop.interface gtk-theme 'Adapta'
-gsettings set org.gnome.shell.extensions.user-theme name 'Adapta'
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
+gsettings set org.gnome.shell.extensions.user-theme name 'Adwaita'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 gsettings set org.gnome.desktop.interface enable-animations true
 gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.desktop.interface clock-show-seconds false
-gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Roboto 10'
-gsettings set org.gnome.desktop.interface document-font-name 'Roboto 10'
-gsettings set org.gnome.desktop.interface font-name 'Roboto 10'
+gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Noto Sans Bold 10'
+gsettings set org.gnome.desktop.interface document-font-name 'Sans 11'
+gsettings set org.gnome.desktop.interface font-name 'Noto Sans 10'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Noto Sans Mono 10'
 
 # Set favorite apps
