@@ -15,9 +15,9 @@ _extensions="['user-theme@gnome-shell-extensions.gcampax.github.com', 'dash-to-d
 gsettings set org.gnome.shell enabled-extensions "${_extensions}"
 
 # Extension - dash-to-dock Settings
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
-gsettings set org.gnome.shell.extensions.dash-to-dock preferred-monitor -1
-gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'ADAPTIVE'
+#gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
+#gsettings set org.gnome.shell.extensions.dash-to-dock preferred-monitor -1
+#gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'DEFAULT'
 
 # Extension - sound-output-device Settings
 gsettings set org.gnome.shell.extensions.sound-output-device-chooser icon-theme 'monochrome'
@@ -25,7 +25,7 @@ gsettings set org.gnome.shell.extensions.sound-output-device-chooser show-output
 gsettings set org.gnome.shell.extensions.sound-output-device-chooser show-profiles true
 
 # Gnome Weather
-gsettings set org.gnome.Weather.Application locations "[<(uint32 2, <('Warsaw', 'EPWA', true, [(0.91048009894147275, 0.36593737231924195)], [(0.91193453416703718, 0.36651914291880922)])>)>]"
+gsettings set org.gnome.shell.weather locations "[<(uint32 2, <('Warsaw', 'EPWA', true, [(0.91048009894147275, 0.36593737231924195)], [(0.91193453416703718, 0.36651914291880922)])>)>]"
 
 # Set theme
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'

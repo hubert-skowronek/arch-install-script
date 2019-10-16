@@ -184,7 +184,6 @@ function install_system {
 	xf86-video-intel \
 	samba \
 	parted \
-	qt4 \
 	wget \
 	firefox \
 	pidgin \
@@ -196,8 +195,8 @@ function install_system {
 	docker \
 	jdk8-openjdk \
 	openjdk8-src \
-	jdk12-openjdk \
-	openjdk12-src \
+	jdk13-openjdk \
+	openjdk13-src \
 	visualvm \
 	scala \
 	scala-sources \
@@ -213,13 +212,15 @@ function install_system {
 	mgba-qt \
 	dolphin-emu \
 	transmission-gtk \
-	bless \
 	unrar \
 	p7zip \
 	gimp \
 	audacity \
 	filezilla \
 	fbreader
+
+	#qt4
+	#bless
 
 	# xnviewmp
 	# skypeforlinux-stable-bin
@@ -267,13 +268,11 @@ function install_min_system {
 	purple-facebook \
 	purple-skypeweb \
 	vlc \
-	qt4 \
 	libdvdcss \
 	libva-intel-driver \
 	git \
 	linux-lts \
 	linux-lts-headers \
-	bless \
 	wget \
 	unrar \
 	screenfetch \
@@ -337,7 +336,7 @@ function set_hostname {
 }
 
 function run_initramfs {
-	sed -i '/HOOKS/s/block filesystems keyboard/block keyboard encrypt lvm2 filesystems/g' /mnt/etc/mkinitcpio.conf # rewrite it to smth smarter
+	sed -i '/HOOKS/s/udev autodetect modconf block filesystems keyboard/udev keyboard autodetect modconf block encrypt lvm2 filesystems/g' /mnt/etc/mkinitcpio.conf # rewrite it to smth smarter
 	arch-chroot /mnt mkinitcpio -p linux-lts
 }
 
@@ -386,15 +385,15 @@ function install_gui {
 	arch-chroot /mnt chown hubert:hubert /home/hubert/setup.sh
 
 	# Dash-to-dock
-	arch-chroot /mnt wget https://extensions.gnome.org/review/download/9456.shell-extension.zip
-	arch-chroot /mnt unzip 9456.shell-extension.zip -d /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
-	arch-chroot /mnt rm 9456.shell-extension.zip
+	arch-chroot /mnt wget https://extensions.gnome.org/review/download/12397.shell-extension.zip
+	arch-chroot /mnt unzip 12397.shell-extension.zip -d /usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com
+	arch-chroot /mnt rm 12397.shell-extension.zip
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/metadata.json
 
 	# Sound
 	arch-chroot /mnt wget https://extensions.gnome.org/extension-data/sound-output-device-chooserkgshank.net.v23.shell-extension.zip
-	arch-chroot /mnt unzip sound-output-device-chooser@kgshank.net.v23.shell-extension.zip -d /usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net
-	arch-chroot /mnt rm sound-output-device-chooser@kgshank.net.v23.shell-extension.zip
+	arch-chroot /mnt unzip sound-output-device-chooserkgshank.net.v23.shell-extension.zip -d /usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net
+	arch-chroot /mnt rm sound-output-device-chooserkgshank.net.v23.shell-extension.zip
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net/*.js
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net/*.json
 
