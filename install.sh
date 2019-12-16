@@ -391,9 +391,9 @@ function install_gui {
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/dash-to-dock@micxgx.gmail.com/metadata.json
 
 	# Sound
-	arch-chroot /mnt wget https://extensions.gnome.org/extension-data/sound-output-device-chooserkgshank.net.v23.shell-extension.zip
-	arch-chroot /mnt unzip sound-output-device-chooserkgshank.net.v23.shell-extension.zip -d /usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net
-	arch-chroot /mnt rm sound-output-device-chooserkgshank.net.v23.shell-extension.zip
+	arch-chroot /mnt wget https://extensions.gnome.org/extension-data/sound-output-device-chooserkgshank.net.v25.shell-extension.zip
+	arch-chroot /mnt unzip sound-output-device-chooserkgshank.net.v25.shell-extension.zip -d /usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net
+	arch-chroot /mnt rm sound-output-device-chooserkgshank.net.v25.shell-extension.zip
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net/*.js
 	chmod 644 /mnt/usr/share/gnome-shell/extensions/sound-output-device-chooser@kgshank.net/*.json
 
